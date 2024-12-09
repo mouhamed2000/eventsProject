@@ -39,7 +39,6 @@ services:
       - my-network
     restart: always
 
-
   prometheus:
     image: prom/prometheus
     container_name: prometheus
@@ -85,6 +84,9 @@ services:
 networks:
   my-network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
 
 volumes:
   db:
