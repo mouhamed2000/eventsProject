@@ -8,8 +8,6 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=events_db
       - MYSQL_ROOT_HOST=%  # Allow root login from any host
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
     networks:
       my-network:
         ipv4_address: 172.18.0.99
