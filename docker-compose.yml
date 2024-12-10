@@ -5,8 +5,11 @@ services:
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=events_db
+      - MYSQL_ROOT_HOST=%  # Allow root login from any host
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
     networks:
       my-network:
         ipv4_address: 172.18.0.5
@@ -23,7 +26,7 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://docker-compose-mysql-db:3306/events_db?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=
+      - SPRING_DATASOURCE_PASSWORD=root
       - SPRING_JPA_SHOW_SQL=false
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
       - SERVER_PORT=8085
