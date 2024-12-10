@@ -10,7 +10,7 @@ services:
       - MYSQL_ROOT_HOST=%  # Allow root login from any host
     networks:
       my-network:
-        ipv4_address: 172.18.0.99
+        ipv4_address: 172.20.0.99  # Changed from 172.18.0.99
     volumes:
       - db:/var/lib/mysql
 
@@ -22,7 +22,7 @@ services:
     depends_on:
       - mysql-db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://172.18.0.99:3306/events_db?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_URL=jdbc:mysql://172.20.0.99:3306/events_db?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
       - SPRING_JPA_SHOW_SQL=false
@@ -93,7 +93,7 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.18.0.0/16
+        - subnet: 172.20.0.0/16  # Changed from 172.18.0.0/16
 
 volumes:
   db:
